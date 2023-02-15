@@ -1,5 +1,13 @@
 server:
-    port: 8010
+    port: 8000
+eureka:
+    client:
+        fetch-registry: true
+        register-with-eureka: true
+        servicer-url:
+            default-zone: http://localhost:8761/eureka-service
+        instance:
+            hostname: localhost
 spring:
     config:
         enabled: true

@@ -1,13 +1,9 @@
 server:
-    port: 8001
+    port: 8004
 eureka:
     client:
-        fetch-registry: true
-        register-with-eureka: true
-        servicer-url:
-            default-zone: http://localhost:8761/eureka-service
-        instance:
-            hostname: localhost
+        fetch-registry: false
+        register-with-eureka: false
 spring:
     config:
         enabled: true
