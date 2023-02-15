@@ -1,9 +1,5 @@
 server:
-    port: 8004
-eureka:
-    client:
-        fetch-registry: false
-        register-with-eureka: false
+    port: 8761
 spring:
     config:
         enabled: true
