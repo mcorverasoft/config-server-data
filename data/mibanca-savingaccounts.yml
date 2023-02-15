@@ -8,6 +8,7 @@ eureka:
             default-zone: http://localhost:8761/eureka
         instance:
             hostname: localhost
+spring
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
         password: root
