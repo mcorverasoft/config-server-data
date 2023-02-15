@@ -1,5 +1,13 @@
 server:
     port: 8002
+eureka:
+    client:
+        fetch-registry: true
+        register-with-eureka: true
+        servicer-url:
+            default-zone: http://localhost:8761/eureka
+        instance:
+            hostname: localhost
 spring:
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
@@ -10,5 +18,4 @@ spring:
         hibernate:
             ddl-auto: update
         show-sql: true
-        
     
