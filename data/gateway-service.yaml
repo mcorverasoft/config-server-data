@@ -15,15 +15,15 @@ spring:
         locator: 
           enabled: true
       routes:
-      - id: mibanca-user
-        uri: lb://mibanca-user
-        predicates:
-        - Path=//user/**
-      - id: mibanca-loan
-        uri: lb://mibanca-loan
-        predicates:
-        - Path=/loan
-      - id: mibanca-savingaccounts
-        uri: lb://mibanca-savingaccounts
-        predicates:
-        - Path=/savingaccounts  
+        - id: mibanca-user
+          uri: lb://mibanca-user
+          predicates:
+            - Path=//user/**
+        - id: mibanca-loan
+          uri: lb://mibanca-loan
+          predicates:
+            - Path=/loan
+        - id: mibanca-savingaccounts
+          uri: lb://mibanca-savingaccounts
+          predicates:
+            - Path=/savingaccounts  
