@@ -1,29 +1,29 @@
 server:
-    port: 8080
+  port: 8080
 eureka:
-    client:
-        fetch-registry: true
-        register-with-eureka: true
-        service-url:
-            default-zone: http://localhost:8761/eureka
-        instance:
-            hostname: localhost
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+    instance:
+      hostname: localhost
 spring:
-    cloud:
-        gateway:
-            discovery:
-                locator: 
-                    enabled: true
-            routes:
-                - id: mibanca-user
-                  uri: lb://mibanca-user
-                  predicates: 
-                  - Path=/user/** 
-                - id: mibanca-loan
-                  uri: lb://mibanca-loan
-                  predicates: 
-                  - Path=/loan/** 
-                - id: mibanca-savingaccounts
-                  uri: lb://mibanca-savingaccounts
-                  predicates: 
-                  - Path=/savingaccounts/** 
+  cloud:
+    gateway:
+      discovery:
+        locator: 
+          enabled:true
+      routes:
+      - id: mibanca-user
+        uri: lb://mibanca-user
+        predicates:
+        - Path=//user/**
+      - id: mibanca-loan
+        uri: lb://mibanca-loan
+        predicates:
+        - Path=/loan
+      - id: mibanca-savingaccounts
+        uri: lb://mibanca-savingaccounts
+        predicates:
+        - Path=/savingaccounts  
