@@ -13,7 +13,7 @@ spring:
     gateway:
       discovery:
         locator: 
-          enabled:true
+          enabled: true
       routes:
       - id: mibanca-user
         uri: lb://mibanca-user
