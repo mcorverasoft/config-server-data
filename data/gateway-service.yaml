@@ -1,0 +1,38 @@
+server:
+    port: ${PORT:${SERVER_PORT:0}}
+eureka:
+    client:
+        fetch-registry: true
+        register-with-eureka: true
+        servicer-url:
+            default-zone: http://localhost:8761/eureka
+        instance:
+            hostname:localhost
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: root
+        url: jdbc:mysql://192.168.1.39:3306/mibanca
+        username: root
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+    cloud:
+        gateway:
+            discovery:
+                locator: 
+                    enabled: true
+            routes:
+                -   id: mibanca-user
+                    uri: lb://mibanca-user
+                    predicate: 
+                        -   Path=/user/** 
+                -   id: mibanca-loan
+                    uri: lb://mibanca-loan
+                    predicate: 
+                        -   Path=/loan/** 
+                -   id: mibanca-savingaccounts
+                    uri: lb://mibanca-savingaccounts
+                    predicate: 
+                        -   Path=/savingaccounts/** 
