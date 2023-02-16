@@ -26,13 +26,13 @@ spring:
             routes:
                 -   id: mibanca-user
                     uri: lb://mibanca-user
-                    predicate: 
+                    predicates: 
                         -   Path=/user/** 
                 -   id: mibanca-loan
                     uri: lb://mibanca-loan
-                    predicate: 
+                    predicates: 
                         -   Path=/loan/** 
                 -   id: mibanca-savingaccounts
                     uri: lb://mibanca-savingaccounts
-                    predicate: 
+                    predicates: 
                         -   Path=/savingaccounts/** 
