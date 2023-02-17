@@ -17,6 +17,8 @@ spring:
       routes:
         - id: mibanca-user
           uri: lb://mibanca-user
+          predicates:
+            - Path=/user/api/user/
         - id: mibanca-loan
           uri: lb://mibanca-loan
           predicates:
