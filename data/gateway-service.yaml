@@ -7,10 +7,10 @@ eureka:
     service-url:
       default-zone: http://localhost:8761/eureka
     instance:
-      hostname: localhost
+      hostname:  DESKTOP-MC2023
 spring:
   cloud:
-    hostname: localhost
+    hostname:  DESKTOP-MC2023
     gateway:
       discovery:
         locator: 
