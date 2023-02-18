@@ -7,10 +7,9 @@ eureka:
     service-url:
       default-zone: http://${eureka.instance.hostname}:8761/eureka
     instance:
-      hostname:  ${eureka.instance.hostname}
+      hostname:  localhost
 spring:
   cloud:
-    hostname:  ${eureka.instance.hostname}
     gateway:
       discovery:
         locator: 
@@ -19,12 +18,12 @@ spring:
         - id: mibanca-user
           uri: lb://mibanca-user
           predicates:
-            - Path=/mibanca-user/**
+            - Path=/user/**
         - id: mibanca-loan
           uri: lb://mibanca-loan
           predicates:
-            - Path=/mibanca-loan/**
+            - Path=/loan/**
         - id: mibanca-savingaccounts
           uri: lb://mibanca-savingaccounts
           predicates:
-            - Path=/mibanca-savingaccounts/**  
+            - Path=/savingaccounts/**  
