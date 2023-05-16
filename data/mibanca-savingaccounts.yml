@@ -1,6 +1,3 @@
-spring:
-    application:
-        name: mibanca-loan
 server:
     port: ${PORT:${SERVER_PORT:0}}
 eureka:
