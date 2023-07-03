@@ -17,7 +17,7 @@ spring:
     jpa:
         hibernate:
             ddl-auto: update
-        show-sql: true
+            show-sql: true
     mvc:
         pathmatch:
             matching-strategy: ANT_PATH_MATCHER
