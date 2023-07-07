@@ -19,6 +19,10 @@ spring:
           uri: lb://mibanca-user
           predicates:
             - Path=/user/**
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user-service/**
         - id: mibanca-loan
           uri: lb://mibanca-loan
           predicates:
