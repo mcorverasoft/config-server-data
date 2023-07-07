@@ -1,11 +1,13 @@
+server:
+  port: 8100
 app:
   regexEmail: ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$
   regexPassword: ^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{4,12}$
 jwt:
   secret: ba5f625f-bf58-4b05-9146-483e98352144
-server:
-  port: 8100
 spring:
+  application:
+    name: user-service
   datasource:
     driverClassName: org.h2.Driver
     password: ''
