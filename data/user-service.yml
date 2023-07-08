@@ -1,5 +1,13 @@
 server:
-  port: 8100
+  port: 0
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}
 app:
   regexEmail: ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$
   regexPassword: ^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{4,12}$
