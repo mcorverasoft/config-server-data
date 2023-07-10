@@ -1,0 +1,33 @@
+server:
+  port: 8000
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://192.168.1.71:8761/eureka
+    instance:
+      hostname: 192.168.1.71
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator: 
+          enabled: true
+      routes:             
+        - id: mibanca-user
+          uri: lb://mibanca-user
+          predicates:
+            - Path=/user/**
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user-service/**
+        - id: mibanca-loan
+          uri: lb://mibanca-loan
+          predicates:
+            - Path=/loan/**
+        - id: mibanca-savingaccounts
+          uri: lb://mibanca-savingaccounts
+          predicates:
+            - Path=/savingaccount/**
