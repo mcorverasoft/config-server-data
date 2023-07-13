@@ -1,0 +1,49 @@
+server:
+  port: 0
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}
+application:
+    mail:
+        smtp:
+            auth: true
+            host: smtp.gmail.com
+            port: 465
+            ssl:
+                enable: true
+                trust: bh-srv-smtp.hipotecario.local
+            starttls:
+                enable: true;
+            user: milton.corvera.ing@gmail.com
+            user.password: System.2022$
+spring:
+    application:
+        name: notification-service
+    datasource:
+        driverClassName: org.h2.Driver
+        password: ''
+        url: jdbc:h2:mem:notification
+        username: sa
+    h2:
+        console:
+            enabled: true
+            path: /h2
+            settings:
+                web-allow-others: true
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.H2Dialect
+        show-sql: true
+    kafka:
+        consumer:
+            bootstrap-server: localhost:9092
+            group-id: group_id
+            topic: CreatedUSer
