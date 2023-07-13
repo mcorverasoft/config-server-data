@@ -27,6 +27,10 @@ spring:
           uri: lb://mibanca-loan
           predicates:
             - Path=/loan/**
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/notification/**
         - id: mibanca-savingaccounts
           uri: lb://mibanca-savingaccounts
           predicates:
