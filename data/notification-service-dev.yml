@@ -16,7 +16,7 @@ application:
             port: 465
             ssl:
                 enable: true
-                trust: bh-srv-smtp.hipotecario.local
+                trust: mail.gmail.com
             starttls:
                 enable: true;
             user: milton.corvera.ing@gmail.com
