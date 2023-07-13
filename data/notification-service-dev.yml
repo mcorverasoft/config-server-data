@@ -1,13 +1,13 @@
 server:
-  port: 0
+    port: 0
 eureka:
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      default-zone: http://localhost:8761/eureka
-  instance:
-    instance-id: ${spring.application.name}:${random.uuid}
+    client:
+        fetch-registry: true
+        register-with-eureka: true
+        service-url:
+            default-zone: http://localhost:8761/eureka
+    instance:
+        instance-id: ${spring.application.name}:${random.uuid}
 application:
     mail:
         smtp:
@@ -22,8 +22,6 @@ application:
             user: milton.corvera.ing@gmail.com
             user.password: System.2022$
 spring:
-    application:
-        name: notification-service
     datasource:
         driverClassName: org.h2.Driver
         password: ''
