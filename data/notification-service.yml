@@ -42,8 +42,9 @@ spring:
         show-sql: true
     kafka:
         bootstrap-server: localhost:9092
-        template-default-topoic: CreatedUSer
-        producer:
+        template-default-topic: CreatedUSer
+        consumer:
+            group-id: notificationid
             key-serializer: org.apache.serialization.StringDeserializer
             value-serializer: org.springframework.kafka.support.serializaer.JsonDeserializer
             properties:
