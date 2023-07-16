@@ -34,8 +34,8 @@ spring:
     bootstrap-server: localhost:9092
     template-default-topic: CreatedUSer
     producer:
-      key-serializer: org.apache.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializaer.JsonSerializer
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.JsonSerializer
       properties:
         spring:
         json:
