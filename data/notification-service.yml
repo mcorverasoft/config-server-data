@@ -51,4 +51,4 @@ spring:
                 spring:
                     json:
                         type:
-                            mapping: event:mcorverasoft.com.sv.sendnotification.application.dtos.events.EventBase
+                            mapping: EventBase:mcorverasoft.com.sv.sendnotification.application.dtos.events.EventBase
