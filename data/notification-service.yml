@@ -46,7 +46,7 @@ spring:
         consumer:
             group-id: notificationid
             key-serializer: org.apache.kafka.common.serialization.StringDeserializer
-            value-serializer: org.apache.kafka.common.serialization.JsonDeserializer
+            value-serializer: org.springframework.kafka.support.serializer.JsonDeserializer
             properties:
                 spring:
                     json:
