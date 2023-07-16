@@ -32,7 +32,15 @@ spring:
       matching-strategy: ANT_PATH_MATCHER
   kafka:
     bootstrap-server: localhost:9092
-    topic: CreatedUSer
+    template-default-topic: CreatedUSer
+    producer:
+      key-serializer: org.apache.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializaer.JsonSerializer
+      properties:
+        spring:
+        json:
+          type:
+            mapping: event:com.mcorvera.userservice.infraestructure.dtos.events.EventBase
 app:
   regexEmail: ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$
   regexPassword: ^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{4,12}$

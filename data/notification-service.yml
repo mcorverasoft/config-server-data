@@ -41,7 +41,13 @@ spring:
                 dialect: org.hibernate.dialect.H2Dialect
         show-sql: true
     kafka:
-        consumer:
-            bootstrap-server: localhost:9092
-            group-id: group_id
-            topic: CreatedUSer
+        bootstrap-server: localhost:9092
+        template-default-topoic: CreatedUSer
+        producer:
+            key-serializer: org.apache.serialization.StringDeserializer
+            value-serializer: org.springframework.kafka.support.serializaer.JsonDeserializer
+            properties:
+                spring:
+                    json:
+                        type:
+                            mapping: event:mcorverasoft.com.sv.sendnotification.application.dtos.events.EventBase
