@@ -51,6 +51,7 @@ spring:
                 spring:
                     json:
                         type:
-                            mapping: EventBase:mcorverasoft.com.sv.sendnotification.application.dtos.events.EventBase
+                            mapping: EventBase:com.mcorvera.sendnotification.application.dtos.events.EventBase
                         trusted:
-                            packages: com.mcorvera.userservice.infraestructure.dtos.events,mcorverasoft.com.sv.sendnotification.application.dtos.events
+                            packages: com.mcorvera.userservice.infraestructure.dtos.events,com.mcorvera.sendnotification.application.dtos.events
+
