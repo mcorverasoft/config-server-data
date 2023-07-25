@@ -43,7 +43,10 @@ spring:
             mapping: event:com.mcorvera.userservice.infraestructure.dtos.events.EventBase
           add: 
             type:
-              headers: false     
+              headers: false   
+springfox: 
+  documentation:
+    swagger-ui.base-url: /user-service
 app:
   regexEmail: ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$
   regexPassword: ^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{4,12}$
