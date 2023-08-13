@@ -29,13 +29,14 @@ spring:
     show-sql: true
   mvc:
     pathmatch:
-      matching-strategy: ANT_PATH_MATCHER
+      matching-strategy: ant_path_matcher
   kafka:
     bootstrap-server: localhost:9092
     topic: CreatedUser
 app:
   regexEmail: ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$
   regexPassword: ^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{4,12}$
+  testProp: Property Test
 jwt:
   secret: ba5f625f-bf58-4b05-9146-483e98352144
   expiration: 18000
