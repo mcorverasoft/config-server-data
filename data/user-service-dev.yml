@@ -11,9 +11,6 @@ eureka:
 spring:
   datasource:
     driverClassName: org.h2.Driver
-    password: ''
-    url: jdbc:h2:mem:testdb
-    username: sa
   h2:
     console:
       enabled: true
@@ -32,11 +29,29 @@ spring:
       matching-strategy: ant_path_matcher
   kafka:
     bootstrap-server: localhost:9092
-    topic: CreatedUser
+    template-default-topic: CreatedUSer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring:
+        json:
+          type:
+            mapping: event:com.mcorvera.userservice.infraestructure.dtos.events.EventBase
+          add: 
+            type:
+              headers: false   
+springfox: 
+  documentation:
+    swagger-ui.base-url: /user-service
 app:
   regexEmail: ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$
   regexPassword: ^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{4,12}$
-  testProp: Property Test
+  testProp: Property Test Updated 2
 jwt:
-  secret: ba5f625f-bf58-4b05-9146-483e98352144
   expiration: 18000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

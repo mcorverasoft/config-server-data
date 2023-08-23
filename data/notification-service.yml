@@ -19,8 +19,8 @@ application:
                 trust: mail.gmail.com
             starttls:
                 enable: true;
-            user: ${NOTIFICATION-SERVICE-EMAIL}
-            user.password: ${NOTIFICATION-SERVICE-EMAIL-PASSWORD}
+            user: ${NOTIFICATION_SERVICE_EMAIL}
+            user.password: ${NOTIFICATION_SERVICE_EMAIL_PASSWORD}
 spring:
     datasource:
         driverClassName: org.h2.Driver

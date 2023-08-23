@@ -11,9 +11,6 @@ eureka:
 spring:
   datasource:
     driverClassName: org.h2.Driver
-    password: ''
-    url: jdbc:h2:mem:testdb
-    username: sa
   h2:
     console:
       enabled: true
@@ -52,7 +49,6 @@ app:
   regexPassword: ^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{4,12}$
   testProp: Property Test Updated 2
 jwt:
-  secret: ba5f625f-bf58-4b05-9146-483e98352144
   expiration: 18000
 management:
   endpoints:
