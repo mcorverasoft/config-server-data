@@ -1,6 +1,0 @@
-{
-    "spring.datasource.usrname": "sa",
-    "spring.datasource.password": "",
-    "spring.datasource.url": "jdbc:h2:mem:testdb",
-    "jwt.secret": "ba5f625f-bf58-4b05-9146-483e98352144"
-}
