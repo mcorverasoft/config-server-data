@@ -40,7 +40,13 @@ spring:
             mapping: event:com.mcorvera.userservice.infraestructure.dtos.events.EventBase
           add: 
             type:
-              headers: false   
+              headers: false
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          issuer:
+            uri: http://localhost:9090/realms/mycompany-microservice
 springfox: 
   documentation:
     swagger-ui.base-url: /user-service

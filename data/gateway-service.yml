@@ -35,3 +35,16 @@ spring:
           uri: lb://mibanca-savingaccounts
           predicates:
             - Path=/savingaccount/**
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:9090/realms/mycompany-microservice
+        registration:
+          spring-cloud-gateway-client:
+            client-id: spring-cloud-gateway-client
+            client-secret: VHw94uorc6f5gozeZiD3aNF9y2nBerd4
+            provider: keycloak
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8000/login/oauth2/code/spring-cloud-gateway-client
