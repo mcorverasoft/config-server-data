@@ -11,8 +11,6 @@ eureka:
 spring:
   cloud:
     gateway:
-      default-filters:
-        - TokenRelay
       discovery:
         locator:
           enabled: true
@@ -21,32 +19,51 @@ spring:
           uri: lb://mibanca-user
           predicates:
             - Path=/user/**
+          filters:
+            TokenRelay=
         - id: user-service
           uri: lb://user-service
           predicates:
-            - Path=/user-service/**
+            Path=/user-service/**
+          filters:
+            TokenRelay=
         - id: notification-service
           uri: lb://notification-service
           predicates:
             - Path=/notification/**
+          filters:
+            TokenRelay=
         - id: mibanca-loan
           uri: lb://mibanca-loan
           predicates:
             - Path=/loan/**
+          filters:
+            TokenRelay=
         - id: mibanca-savingaccounts
           uri: lb://mibanca-savingaccounts
           predicates:
             - Path=/savingaccount/**
+          filters:
+            TokenRelay=
   security:
     oauth2:
       client:
+        registration:
+          spring-cloud-gateway-client:
+            provider: keycloak
+            client-id: spring-cloud-gateway-client
+            client-secret: M0loCpnBvafkkcxtPQIHNUzZ38d9OMsh
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8000/login/oauth2/code/spring-cloud-gateway-client
+            scope: openid, user-service
+
         provider:
           keycloak:
             issuer-uri: http://localhost:9090/realms/mycompany-microservice
-        registration:
-          spring-cloud-gateway-client:
-            client-id: spring-cloud-gateway-client
-            client-secret: VHw94uorc6f5gozeZiD3aNF9y2nBerd4
-            provider: keycloak
-            authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:8000/login/oauth2/code/spring-cloud-gateway-client
+            user-name-attribute: preferred_username
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
