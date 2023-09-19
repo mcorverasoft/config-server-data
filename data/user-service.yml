@@ -38,7 +38,7 @@ spring:
         json:
           type:
             mapping: event:com.mcorvera.userservice.infraestructure.dtos.events.EventBase
-          add: 
+          add:
             type:
               headers: false
   security:
@@ -46,9 +46,16 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:9090/realms/mycompany-microservice
-springfox: 
+springfox:
   documentation:
-    swagger-ui.base-url: /user-service
+    swaggerUi:
+      baseUrl: /user-service
+    openApi:
+      v3:
+        path: /user-service/v3/api-docs
+    swagger:
+      v2:
+        path: /user-service/v2/api-docs
 app:
   regexEmail: ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$
   regexPassword: ^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{4,12}$
@@ -60,3 +67,9 @@ management:
     web:
       exposure:
         include: "*"
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG

@@ -56,7 +56,6 @@ spring:
             authorization-grant-type: authorization_code
             redirect-uri: http://localhost:8000/login/oauth2/code/spring-cloud-gateway-client
             scope: openid, user-service
-
         provider:
           keycloak:
             issuer-uri: http://localhost:9090/realms/mycompany-microservice
