@@ -36,13 +36,30 @@ spring:
           predicates:
             - Path=/savingaccount/**
   security:
-    oauth2:
-      resourceserver:
-        opaquetoken:
-          introspection-uri: http://localhost:9090/realms/mycompany-microservice/protocol/openid-connect/token/introspect
-          client-id: spring-cloud-gateway-client
-          client-secret: M0loCpnBvafkkcxtPQIHNUzZ38d9OMsh
+    oauth2: #For token authorize and/or login keycloak user
+      resourceserver: #For token authorize
+        jwt:
+          issuer-uri: http://localhost:9090/realms/mycompany-microservice
+          jwk-set-uri: http://localhost:9090/realms/mycompany-microservice/protocol/openid-connect/certs
+      #  opaquetoken:
+      #    introspection-uri: http://localhost:9090/realms/mycompany-microservice/protocol/openid-connect/token/introspect
+      #    client-id: spring-cloud-gateway-client
+      #    client-secret: M0loCpnBvafkkcxtPQIHNUzZ38d9OMsh
+      client: #For login keycloak user (interactive)
+        registration:
+          spring-cloud-gateway-client:
+            provider: keycloak
+            client-id: spring-cloud-gateway-client
+            client-secret: M0loCpnBvafkkcxtPQIHNUzZ38d9OMsh
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8000/login/oauth2/code/spring-cloud-gateway-client
+            scope: openid, user-service
 
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:9090/realms/mycompany-microservice
+            userinfo-uri: http://localhost:9090/realms/mycompany-microservice/protocol/openid-connect/userinfo
+            user-name-attribute: preferred_username
 logging:
   level:
     org:
